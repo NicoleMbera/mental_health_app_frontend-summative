@@ -2,6 +2,7 @@ YouMatter — Mental Health Support App
 YouMatter is a mental health companion web application that connects users to psychologists, allows them to chat, schedule video therapy sessions using Jitsi Meet, find nearby mental health clinics, and get book recommendations on mental wellness. This project was built with Node.js, Express, HTML/CSS/JS, and integrates multiple external APIs to deliver a meaningful and user-friendly experience.
 
 🚀 Features
+
 🔍 Search Psychologists by name or specialty
 
 💬 Live Messaging simulation with mental health professionals
