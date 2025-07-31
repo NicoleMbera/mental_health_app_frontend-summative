@@ -30,7 +30,7 @@ GET /clinics → Fetches clinics in Rwanda using OpenStreetMap's Nominatim API
 All API requests from the frontend are served at http://localhost:5000.
 
 2. Frontend (HTML/CSS/JavaScript)
-3. 
+
 Dynamically loads psychologists and allows real-time search
 
 Displays a messaging interface with session scheduling upon sending a message
