@@ -100,8 +100,11 @@ Future Improvements
 Add user authentication
 
 Persist scheduled sessions in a database
+
 Enable real-time chat via WebSocket
+
 Add location detection for more precise clinic suggestions
+
 
 
 Author
