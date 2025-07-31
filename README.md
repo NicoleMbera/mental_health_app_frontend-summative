@@ -89,9 +89,13 @@ Ensure your browser allows http://localhost:5000 requests (CORS is enabled in th
 mental_health_app_frontend-summative/
 
 ├── server.js           # Express backend server
+
 ├── .env                # Environment config (if needed)
+
 ├── index.html          # Main web interface
+
 ├── style.css           # Styles
+
 └── script.js           # Frontend logic
 
 Future Improvements
