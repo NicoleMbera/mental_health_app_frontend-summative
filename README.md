@@ -56,7 +56,6 @@ Jitsi Meet API	Schedule secure, private video consultations	Embedded via https:/
 🛠️ Setup Instructions (Local Implementation)
 
 🔧 Prerequisites
-
 Node.js and npm installed
 
 Git (optional)
@@ -69,11 +68,9 @@ git clone https://github.com/NicoleMbera/mental_health_app_frontend-summative.gi
 cd  mental_health_app_frontend-summative
 
 Install dependencies
-
 npm install
 
 Run the server
-
 node server.js
 
 The backend server will run at http://localhost:5000.
@@ -103,9 +100,7 @@ Future Improvements
 Add user authentication
 
 Persist scheduled sessions in a database
-
 Enable real-time chat via WebSocket
-
 Add location detection for more precise clinic suggestions
 
 
