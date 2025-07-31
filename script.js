@@ -1,10 +1,11 @@
-
 let psychologists = [];
 let selectedTimeSlot = null;
 let currentDoctor = null;
 
+const BACKEND_URL = "https://mental-health-app-backend-summative.onrender.com";
+
 window.onload = async function () {
-  const res = await fetch("http://localhost:5000/doctors");
+  const res = await fetch(`${BACKEND_URL}/doctors`);
   psychologists = await res.json();
   displayPsychologists(psychologists);
 
@@ -48,7 +49,6 @@ function startChat(name) {
   document.getElementById("userContact").value = "";
   document.getElementById("chatSection").classList.remove("hidden");
 
-  // Reset schedule section
   document.getElementById("scheduleSection").classList.add("hidden");
   document.getElementById("sessionConfirmation").classList.add("hidden");
   document.getElementById("scheduleBtn").disabled = true;
@@ -74,7 +74,7 @@ async function sendMessage() {
   document.getElementById("chatInput").value = "";
 
   try {
-    const res = await fetch("http://localhost:5000/messages", {
+    const res = await fetch(`${BACKEND_URL}/messages`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ doctorName, userName, userContact, message: msg })
@@ -154,7 +154,7 @@ async function scheduleSession() {
   }
 
   try {
-    const response = await fetch("http://localhost:5000/schedule-session", {
+    const response = await fetch(`${BACKEND_URL}/schedule-session`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -222,10 +222,10 @@ async function loadMentalHealthBooks() {
   }
 }
 
-// ✅ Show nearby clinics on a Leaflet map (no list)
+// ✅ Show nearby clinics on a Leaflet map
 async function findNearbyClinics() {
   try {
-    const res = await fetch("http://localhost:5000/clinics");
+    const res = await fetch(`${BACKEND_URL}/clinics`);
     const clinics = await res.json();
 
     if (!clinics || clinics.length === 0) {
@@ -236,15 +236,12 @@ async function findNearbyClinics() {
     const firstClinic = clinics[0];
     const mapCenter = firstClinic ? [firstClinic.lat, firstClinic.lon] : [-1.95, 30.1];
 
-    // Create the map
     const map = L.map("map").setView(mapCenter, 13);
 
-    // Add OpenStreetMap tiles
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: "&copy; OpenStreetMap contributors"
     }).addTo(map);
 
-    // Add markers
     clinics.forEach(clinic => {
       L.marker([clinic.lat, clinic.lon])
         .addTo(map)
